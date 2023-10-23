@@ -14,24 +14,24 @@
 
 
 
-# <center>**INTRODUÇÃO**</center>
+# <center>**INTRODUCTION**</center>
 
-- ## **POR QUE SEGUIR UM SEGUIR UM GIT FLOW**
+- ## **WHY TO FOLLOW A GIT FLOW**
 <p style="text-align:justify">
-    Para todos que utilizam o Git como ferramenta de controle de versão para seus softwares, já devem ter observado as várias maneiras de como controlar branches de repositórios. É corriqueiro pessoas utilizarem apenas uma <i>branch</i> para fazer <i>commits</i> em projetos pessoais, o que não é errado, pois quando estamos trabalhando sozinhos é mais tranquilo de se controlar tudo em um branch só.
+    Anyone who uses Git as a version control tool for their software will have seen the various ways of controlling repository branches. It's common for people to use just one <i>branch</i> to make <i>commits</i> in personal projects, which isn't wrong, because when you're working alone it's easier to control everything in just one branch.
 </p>
 <p style="text-align:justify">
-    Entretanto, o cenário se torna totalmente diferente e mais complexo quando estamos trabalhando com mais contribuidores em um projeto.
+    However, the scenario becomes totally different and more complex when we are working with more contributors on a project.
 </p>
 <pre>
-    Em todo projeto real, é importantíssimo que se tenha controle total do que está sendo produzido por uma equipe de pessoas desenvolvedoras, onde, ao <b>mesmo tempo</b>, são feitas muitas coisas, como: implementação de novas funcionalidades, correção de falhas, lançamento de versões, etc. E é justamente aqui, que o Git Flow entra para nos ajudar, facilitando o desenvolvimento compartilhado de código com pessoas desenvolvedoras.
+    In any real project, it is extremely important to have total control of what is being produced by a team of developers, where many things are being done at the <b>same time</b>, such as: implementing new features, correcting faults, releasing versions, etc. And this is precisely where Git Flow comes in to help us, facilitating the shared development of code with developers.
 </pre>
 
 <br>
 
-- ## **QUAL MODELO IREMOS USAR**
+- ## **WHICH MODEL WE WILL USE**
 <p style="text-align:justify">
-    Publicado em 2010, pelo engenheiro de software holandês, Vincent Driessen, o objetivo do <i>Git Branching Model</i> era melhorar as organizações das <i>branches</i> dentro de repositórios e, desta forma, dar mais fluidez ao processo de desenvolvimento de novas funcionalidades, correções de bugs e lançamentos de versões.
+    Published in 2010 by Dutch software engineer Vincent Driessen, the aim of the <i>Git Branching Model</i> was to improve the organization of <i>branches</i> within repositories and thus streamline the process of developing new features, bug fixes and version releases.
 </p>
 
 
@@ -50,110 +50,110 @@
 <div style="text-align:center">
     <img src="./gitflow.jpg" height="1000px">
     <br>
-    <p><b><i>Imagem prática do workflow do modelo</i></b></p>
+    <p><b><i>Practical image of the model workflow</i></b></p>
 </div>
 
 <br>
 
-- ## **BRANCHES PRINCIPAIS**
+- ## **MAIN BRANCHES**
 <p style="text-align:justify">
-    O repositório contém duas <i>branches</i> principais com um 'tempo de vida infinito', a <code>main</code> e a <code>develop</code>. Quando o código-fonte na <i>branch</i> <code>develop</code> atinge um ponto estável e está pronto para uma nova <i>release</i>, todas as alterações devem ser fundidas de novo na <code>main</code> e depois receber uma tag com um número da versão.
+    The repository contains two main <i>branches</i> with an 'infinite lifetime', <code>main</code> and <code>develop</code>. When the source code in the <code>develop</code> <i>branch</i> reaches a stable point and is ready for a new <i>release</i>, all changes should be merged back into <code>main</code> and then given a tag with a version number.
 </p>
 <p style="text-align:justify">
-    Ainda, as <i>branchs</i> principais <b>não</b> recebem <i>commits</i> diretamente! Apenas <i>merges</i> e <i>Pull Requests</i>.
+    Still, the main <i>branchs</i> <b>don't</b> receive <i>commits</i> directly! Only <i>merges</i> and <i>Pull Requests</i>.
 </p>
 
 <br>
 
 ### `main`
 <p style="text-align:justify">
-    Consideramos <code>origin/master</code> como a <i>branch</i> principal onde o código fonte de HEAD reflecte sempre um estado pronto para produção.
+    We consider <code>origin/master</code> to be the main <i>branch</i> where the HEAD source code always reflects a production-ready state.
 </p>
 
 <br>
     
 ### `develop`
 <p style="text-align:justify">
-    Consideramos <code>origin/develop</code> como sendo a <i>branch</i> principal onde o código fonte de HEAD reflecte sempre um estado com as últimas alterações de desenvolvimento entregues para a próxima <i>release</i>.
+    We consider <code>origin/develop</code> to be the main <i>branch</i> where the HEAD source code always reflects a state with the latest development changes delivered for the next <i>release</i>.
 </p>
 
 <br>
 
-- ## **BRANCHES AUXILIARES**
+- ## **AUXILIARY BRANCHES**
 <p style="text-align:justify">
-    Este modelo de desenvolvimento utiliza uma variedade de <i>branches</i> de apoio para ajudar o desenvolvimento paralelo entre os membros da equipe, facilitar o acompanhamento das <i>features</i>, preparar as <i>releases</i> em produção e ajudar a resolver rapidamente problemas de produção em tempo real. Ao contrário das <i>branches</i> principais, estas <i>branches</i> têm sempre um tempo de vida limitado.
+    This development model uses a variety of support <i>branches</i> to help parallel development between team members, facilitate <i>features</i> tracking, prepare production <i>releases</i> and help quickly resolve production problems in real time. Unlike the main <i>branches</i>, these <i>branches</i> always have a limited lifespan.
 </p>
 <p style="text-align:justify">
-    Estas <i>branches</i> recebem <i>commits</i> diretamente.
+    These <i>branches</i> receive <i>commits</i> direclty.
 </p>
 
 <br>
 
 ### `feature`
 ```
-- Branch pai: develop
-- Branch que recebe o merge: develop
-- Name branch pattern: feat-{nome da funcionalidade}
+- Parent Branch: develop
+- Branch to receive the merge: develop
+- Name branch pattern: feat-{feature name}
 ```
 <p style="text-align:justify">
-    As <code>feature branches</code> são utilizados para desenvolver novas <i>features</i> para a próxima versão ou para uma versão futura distante. Ao iniciar o desenvolvimento de uma <i>feature</i>, a versão alvo na qual esta funcionalidade será incorporada pode ser desconhecida nesse momento. A essência de uma <i>feature branch</i> é que ele existe enquanto a <i>feature</i> estiver em desenvolvimento, mas eventualmente será fundido de volta a <code>develop</code> (para adicionar definitivamente a nova <i>feature</i> à próxima versão) ou descartado (no caso de uma experiência sem sucesso).
+    <code>Feature branches</code> are used to develop new <i>features</i> for the next version or for a distant future version. When starting the development of a <i>feature</i>, the target version in which this functionality will be incorporated may be unknown at that time. The essence of a <i>feature branch</i> is that it exists while the <i>feature</i> is in development, but will eventually be merged back into <code>develop</code> (to definitively add the new <i>feature</i> to the next version) or discarded (in the case of an unsuccessful experiment).
 </p>
 
 <br>
 
 ### `release`
 ```
-- Branch pai: develop
-- Branch que recebe o merge: main e develop
-- Name branch pattern: release-{versão}
+- Parent Branch: develop
+- Branch to receive the merge: main e develop
+- Name branch pattern: release-{version}
 ```
 <p style="text-align:justify">
-    As <code>release branches</code> apoiam a preparação de uma nova <i>release</i> de produção. Permitem que se ponham os pontos nos "i's" e se cruzem os "t's" de última hora. Além disso, permitem pequenas correcções de <i>bugs</i> e a preparação de meta-dados para uma <i>release</i> (número de versão, datas de <i>builds</i>, etc.). Ao fazer todo este trabalho numa <code>release branch</code>, a <code>develop</code> fica livre para receber <i>features</i> para a próxima grande <i>release</i>.
+    <code>Release branches</code> support the preparation of a new production <i>release</i>. Permitem que se ponham os pontos nos "i's" e se cruzem os "t's" de última hora. In addition, they allow small <i>bug</i> fixes and the preparation of metadata for a <i>release</i> (version number, <i>build</i> dates, etc.). By doing all this work on a <code>release branch</code>, the <code>develop</code> is free to receive <i>features</i> for the next major <i>release</i>.
 </p>
 <p style="text-align:justify">
-    O momento chave para ramificar uma nova <code>release branch</code> a partir da <code>develop</code> é quando o desenvolvimento (quase) reflete o estado desejado da nova <i>release</i>. Pelo menos todas as <i>features</i> que são direcionadas para a versão a ser construída devem ser mescladas na <code>develop</code> neste momento. Todas as <i>features</i> direcionadas para <i>releases</i> futuras não podem - têm de esperar até que a <code>release branch</code> seja ramificada.
+    The key moment to branch a new release from <code>develop</code> is when develop (almost) reflects the desired state of the new <i>release</i>. At least all the <i>features</i> that are targeted at the version to be built should be merged into <code>develop</code> at this point. All <i>features</i> targeted at future releases cannot - they have to wait until the <code>release branch</code> is branched.
 </p>
 <p style="text-align:justify">
-    É exatamente no início de uma <code>release branch</code> que o próximo lançamento recebe um número de versão. Até esse momento, a <code>develop</code> reflecte as alterações para a "próxima <i>release</i>", mas não é claro se esse "próxima <i>release</i>" irá eventualmente tornar-se 0.3 ou 1.0, até que a <code>release branch</code> seja iniciada. Essa decisão é tomada no início da <code>release branch</code> e é levada pelas regras do projeto sobre o aumento do número de versões.
+    It is exactly at the start of a <code>release branch</code> that the next release receives a version number. Up to this point, the <code>develop</code> reflects the changes for the "next <i>release</i>", but it is not clear whether this "next <i>release</i>" will eventually become 0.3 or 1.0, until the <code>release branch</code> is started. This decision is made at the start of the <code>release branch</code> and is driven by the project's rules on increasing the number of versions.
 </p>
 
 <br>
 
 ### `hotfix`
 ```
-- Branch pai: main
-- Branch que recebe o merge: main e develop
-- Name branch pattern: hotfix-{nome da correção}
+- Parent branch: main
+- Branch to receive the merge: main e develop
+- Name branch pattern: hotfix-{fix name}
 ```
 <p style="text-align:justify">
-    Os <code>hotfix branches</code> são muito parecidos com as <code>release branches</code>, na medida em que também se destinam a preparar uma nova <i>release</i> de produção, embora não planejado. Eles surgem da necessidade de agir imediatamente sobre um estado indesejado de uma versão de produção ativa. Quando um <i>bug</i> crítico numa versão de produção tem de ser resolvido imediatamente, uma <code>hotfix branch</code> pode ser ramificado a partir da tag correspondente na <code>main</code> que marca a versão de produção.
+    <code>Hotfix branches</code> are very similar to <code>release branches</code> in that they are also intended to prepare a new production <i>release</i>, albeit unplanned.They arise from the need to act immediately on an undesired state of an active production release. When a critical <i>bug</i> in a production release has to be resolved immediately, a <code>hotfix branch</code> can be branched from the corresponding tag in the <code>main</code> that marks the production release.
 </p>
 <p style="text-align:justify">
-    A essência é que o trabalho dos membros da equipe na <code>develop</code> pode continuar, enquanto outra pessoa está preparando uma correção rápida de produção.
+    The essence is that the work of the team members in <code>develop</code> can continue, while someone else is preparing a quick production fix.
 </p>
 
 <br>
 
 - ## **COMMITS**
 <p style="text-align:justify">
-    Padrão de mensagem de commits.
+    Commits message patterns.
 </p>
 
-### Tipos
-- Created: ao criar novas funções, features, componentes, etc ...
-- Updated: ao atualizar funçoes, features, componentes, etc ...
-- Refactored: ao refatorar funções, features, componentes, etc ...
-- Fixed: ao corrigir um bug.
-- Doc: ao documentar (docstrings, entre outros).
+### Types
+- Created: when creating new functions, features, components, etc. ...
+- Updated: when updating new functions, features, components, etc ...
+- Refactored: when refactoring functions, features, components, etc ...
+- Fixed: when fixing a bug.
+- Doc: when document (docstrings, etc).
 
 <br>
 
-### Mensagem
+### Message
 ```
-{Tipo} [{escopo}]: {mensagem}
+{Type} [{scope}]: {message}
 ```
 <p style="text-align:justify">
-    Os commits devem estar em inglês, com as mensagens utilizando os verbos no passado.
+    Commits must be in english, with the messages using past verbs.
 </p>
 
 <br>
@@ -170,10 +170,10 @@
 
 
 
-# **REFERÊNCIAS**
+# **REFERENCES**
 - https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar
 - https://nvie.com/posts/a-successful-git-branching-model/
 - https://medium.com/linkapi-solutions/conventional-commits-pattern-3778d1a1e657
 
-# **DÚVIDAS?**
+# **DOUBTS?**
 - Luan Bruno Domingues de Oliveira
