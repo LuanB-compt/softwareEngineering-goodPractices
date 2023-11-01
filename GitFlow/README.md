@@ -134,6 +134,18 @@
 
 <br>
 
+### Commands
+
+```
+git pull origin {branch}     -> Sync the parent branch with the remote repo
+git checkout -b {new branch} -> Create the new branch
+...                          -> Commits 
+git push origin {new branch} -> Update the new branch to remote repo
+<open Pull Request>
+```
+
+<br>
+
 - ## **COMMITS**
 <p style="text-align:justify">
     Commits message patterns.
@@ -155,6 +167,32 @@
 <p style="text-align:justify">
     Commits must be in english, with the messages using past verbs.
 </p>
+
+<br>
+
+### Commands
+```
+git pull origin {branch}  -> Sync the branch with the remote repo
+git add {file/folder}     -> Change the file/folder state to staged 
+git commit -m "{message}" -> Commit the stage files/folders 
+git push origin {branch}  -> Update the remote repo with the local commits
+```
+
+<br>
+
+- ## **OTHER COMMANDS**
+<p style="text-align:justify">
+    Other utils commands.
+</p>
+
+### Commands
+```
+git branch            -> Check the local branchs
+git status            -> Check the local files status
+git commit --amend    -> Rewrite the last commit message
+git reset {commit id} -> Go back to a old commit in the branch
+git remote -v         -> Check the respective remote repo
+```
 
 <br>
 
